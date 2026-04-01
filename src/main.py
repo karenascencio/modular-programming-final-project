@@ -1,4 +1,4 @@
-from options import get_accounts_info, get_gamers_info, delete_record, add_new_record
+from options import get_accounts_info, get_gamers_info, delete_record, add_new_record, update_record
 
 
 if __name__ == "__main__":
@@ -8,3 +8,5 @@ if __name__ == "__main__":
     add_new_record(gamer_ids, paid_fee, days_since_reset, statuses)
     print(gamer_ids, paid_fee, days_since_reset, statuses)
     get_accounts_info(gamer_ids, paid_fee, days_since_reset, statuses)
+    update_record(gamer_ids, statuses)
+    print(gamer_ids, paid_fee, days_since_reset, statuses)

@@ -53,3 +53,15 @@ def add_new_record(ids, paids, days, statuses):
     paids.append('No')
     days.append(0)
     statuses.append('Active')
+    return print(f"{id_to_add} has been added successfully")
+
+
+def update_record(ids, statuses):
+    id_to_find = input("Enter the gamer id you want to update: ").upper()
+    if id_to_find not in ids:
+        return print(f"{id_to_find} is not in the records.")
+    index = ids.index(id_to_find)
+    new_status = input(
+        f"The current status for {id_to_find} is {statuses[index]}, please enter the new status: ").capitalize()
+    statuses[index] = new_status
+    print(f"{id_to_find} status is now {statuses[index]}")
