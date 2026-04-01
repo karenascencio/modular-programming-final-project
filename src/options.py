@@ -1,5 +1,5 @@
 from utils import get_account_type, get_fee_status_icon
-from constants import table_headers
+from constants import HEADERS
 
 
 def get_gamers_info():
@@ -21,7 +21,7 @@ def get_gamers_info():
 
 def get_accounts_info(ids, paids, days, statuses):
     print(
-        f"{table_headers[0]:<10} {table_headers[1]:<15}{table_headers[2]:<20}{table_headers[3]}")
+        f"{HEADERS[0]:<10} {HEADERS[1]:<15}{HEADERS[2]:<20}{HEADERS[3]}")
     print("-" * 56)
 
     for gamer_id, paid, day, status in zip(ids, paids, days, statuses):
@@ -65,3 +65,9 @@ def update_record(ids, statuses):
         f"The current status for {id_to_find} is {statuses[index]}, please enter the new status: ").capitalize()
     statuses[index] = new_status
     print(f"{id_to_find} status is now {statuses[index]}")
+
+
+def save_records(ids, paids, days, statuses):
+    with open('gamers.txt', "w") as new_books_file:
+        for gamer_id, paid, day, status in zip(ids, paids, days, statuses):
+            new_books_file.write(f"{gamer_id}, {paid}, {day}, {status} \n")
