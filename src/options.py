@@ -31,3 +31,16 @@ def get_accounts_info(ids, paids, days, statuses):
         else:
             print(
                 f"{gamer_id:<15}{get_account_type(gamer_id):<15}{get_fee_status_icon(paid):<15}{status} 🚨")
+
+
+def delete_record(ids, paids, days, statuses):
+    id_to_find = input("Enter the gamer id you want to delete ").upper()
+    if id_to_find not in ids:
+        print(f"{id_to_find} is not in the record.")
+    else:
+        index = ids.index(id_to_find)
+        ids.pop(index)
+        paids.pop(index)
+        days.pop(index)
+        statuses.pop(index)
+        print(f"{id_to_find} is now deleted")
