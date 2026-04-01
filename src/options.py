@@ -1,3 +1,7 @@
+from utils import get_account_type, get_fee_status_icon
+from constants import table_headers
+
+
 def get_gamers_info():
     gamer_ids = []
     paid_fee = []
@@ -15,6 +19,15 @@ def get_gamers_info():
     return gamer_ids, paid_fee, days_since_reset, statuses
 
 
-def get_accounts_info():
-    gamer_ids, paid_fee, days_since_reset, statuses = get_gamers_info()
-    print(gamer_ids, paid_fee, days_since_reset, statuses)
+def get_accounts_info(ids, paids, days, statuses):
+    print(
+        f"{table_headers[0]:<10} {table_headers[1]:<15}{table_headers[2]:<20}{table_headers[3]}")
+    print("-" * 56)
+
+    for gamer_id, paid, day, status in zip(ids, paids, days, statuses):
+        if day <= 90:
+            print(
+                f"{gamer_id:<15}{get_account_type(gamer_id):<15}{get_fee_status_icon(paid):<15}{status}")
+        else:
+            print(
+                f"{gamer_id:<15}{get_account_type(gamer_id):<15}{get_fee_status_icon(paid):<15}{status} 🚨")
