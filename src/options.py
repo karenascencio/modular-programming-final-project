@@ -53,7 +53,7 @@ def add_new_record(ids, paids, days, statuses):
     paids.append('No')
     days.append(0)
     statuses.append('Active')
-    return print(f"{id_to_add} has been added successfully")
+    print(f"{id_to_add} has been added successfully")
 
 
 def update_record(ids, statuses):
