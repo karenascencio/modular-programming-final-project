@@ -71,3 +71,4 @@ def save_records(ids, paids, days, statuses):
     with open('gamers.txt', "w") as new_books_file:
         for gamer_id, paid, day, status in zip(ids, paids, days, statuses):
             new_books_file.write(f"{gamer_id}, {paid}, {day}, {status} \n")
+    print("Data has been saved succesfully! :D")
