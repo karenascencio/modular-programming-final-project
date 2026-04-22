@@ -103,3 +103,12 @@ def export_to_file(file_name, data_array):
         for data in data_array:
             new_file.write(f"{data} \n")
     print(f"{file_name} written succesfully! <3")
+
+
+def disable_unpaid_accounts(paid_fee, statuses):
+    disabled_accounts_counter = 0
+    for index, paid in enumerate(paid_fee):
+        if paid == 'No' and statuses[index] == 'Active':
+            statuses[index] = 'Disabled'
+            disabled_accounts_counter += 1
+    return disabled_accounts_counter

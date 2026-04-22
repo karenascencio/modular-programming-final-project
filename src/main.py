@@ -1,4 +1,4 @@
-from options import get_accounts_info, get_gamers_info, delete_record, add_new_record, update_record, save_records, get_gamer_type_percentage, export_ids_by_status
+from options import get_accounts_info, get_gamers_info, delete_record, add_new_record, update_record, save_records, get_gamer_type_percentage, export_ids_by_status, disable_unpaid_accounts
 
 from constants import MENU
 
@@ -20,5 +20,8 @@ if __name__ == "__main__":
             get_gamer_type_percentage(gamer_ids)
         elif choice == 6:
             export_ids_by_status(gamer_ids, statuses)
+        elif choice == 7:
+            disabled_accounts = disable_unpaid_accounts(paid_fee, statuses)
+            print(f"{disabled_accounts} account(s) have been disabled.")
         choice = int(input(MENU))
     save_records(gamer_ids, paid_fee, days_since_reset, statuses)

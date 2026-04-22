@@ -6,7 +6,7 @@ MENU = '''1. View records
 4. Update status
 5. Print gamers percentage by type
 6. Export ids by status
-7.
+7. Disable unpaid accounts
 8. Quit
 *~ Select an option ~*
 '''
