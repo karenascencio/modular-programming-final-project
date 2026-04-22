@@ -72,3 +72,34 @@ def save_records(ids, paids, days, statuses):
         for gamer_id, paid, day, status in zip(ids, paids, days, statuses):
             new_books_file.write(f"{gamer_id}, {paid}, {day}, {status} \n")
     print("Data has been saved succesfully! :D")
+
+
+def get_gamer_type_percentage(ids):
+    pro_gamers = [id for id in ids if id[:3] == 'PRO']
+    casual_gamers = [id for id in ids if id[:3] == 'CAS']
+
+    percentage_pro = len(pro_gamers) * 100 / len(ids)
+    percentage_casual = len(casual_gamers) * 100 / len(ids)
+
+    print(
+        f"The percentage of casual gamers is {percentage_casual}% and the pro gamers is {percentage_pro}%.")
+
+
+def export_ids_by_status(ids, statuses):
+    active = [ids[index]
+              for index, status in enumerate(statuses) if status == 'Active']
+    disabled = [ids[index]
+                for index, status in enumerate(statuses) if status == 'Disabled']
+    locked = [ids[index]
+              for index, status in enumerate(statuses) if status == 'Locked']
+
+    export_to_file('active.txt', active)
+    export_to_file('disabled.txt', disabled)
+    export_to_file('locked.txt', locked)
+
+
+def export_to_file(file_name, data_array):
+    with open(file_name, "w") as new_file:
+        for data in data_array:
+            new_file.write(f"{data} \n")
+    print(f"{file_name} written succesfully! <3")
